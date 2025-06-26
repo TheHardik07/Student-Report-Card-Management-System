@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "");
+    }
+
+    window.onload = () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+    }
+</script>
+    <title>Student Report Cards</title>
+    <style>
+        body { font-family: Arial; }
+        table { border-collapse: collapse; width: 90%; margin: auto; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        a.button { padding: 6px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+        a.delete { background: #dc3545; }
+        .top { text-align: center; margin: 20px; }
+    </style>
+</head>
+<div style="text-align:right; padding: 10px;">
+    <button onclick="toggleTheme()">Theme</button>
+</div>
+
+<body>
+    <div class="top">
+        <h1>Student Report Cards</h1>
+        <a class="button" href="{{ url_for('add') }}"> Add Student</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Python</th>
+                <th>Java Script</th>
+                <th>Adv. Java</th>
+                <th>Total</th>
+                <th>Average</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.Roll }}</td>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Python }}</td>
+                <td>{{ student['Java Script'] }}</td>
+                <td>{{ student['Adv. Java'] }}</td>
+                <td>{{ student.Total }}</td>
+                <td>{{ student.Average }}</td>
+                <td>{{ student.Grade }}</td>
+                <td><a class="button delete" href="{{ url_for('delete', roll=student.Roll) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

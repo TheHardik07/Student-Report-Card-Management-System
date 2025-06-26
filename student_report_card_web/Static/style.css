@@ -1,0 +1,118 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-bg: #f2f2f2;
+    --button-color: #28a745;
+    --delete-color: #dc3545;
+}
+
+body.dark {
+    --bg-color: #121212;
+    --text-color: #13d2af;
+    --header-bg: #1f1f1f;
+    --button-color: #2a9d8f;
+    --delete-color: #e76f51;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+button, a.button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a.delete {
+    background-color: var(--delete-color);
+}
+
+button:hover, a.button:hover, a.delete:hover {
+    opacity: 0.9;
+}
+
+table {
+    width: 100%;
+    margin: 30px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+body.dark tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+body.dark tr:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
